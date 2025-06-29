@@ -1,0 +1,228 @@
+{
+  "tutorials": [
+    {
+      "category": "Frontend",
+      "title": "Vue.js Essentials",
+      "description": "Learn the fundamentals of building reactive web apps with Vue.",
+      "docLink": "https://vuejs.org/guide/introduction.html",
+      "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg",
+      "video": "https://www.youtube.com/watch?v=FXpIoQ_rT_c"
+    },
+    {
+      "category": "Frontend",
+      "title": "Svelte Basics",
+      "description": "Discover Svelte's approach to building fast web apps with less boilerplate.",
+      "docLink": "https://svelte.dev/tutorial/basics",
+      "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/svelte/svelte-original.svg",
+      "video": "https://www.youtube.com/watch?v=zojEMeQGGHs"
+    },
+    {
+      "category": "Frontend",
+      "title": "HTML & CSS Mastery",
+      "description": "Deep dive into semantic HTML and advanced CSS techniques.",
+      "docLink": "https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web",
+      "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
+      "video": "https://www.youtube.com/watch?v=1Rs2ND1ryYc"
+    },
+    {
+      "category": "Frontend",
+      "title": "React Development",
+      "description": "Build modern user interfaces with React hooks and components.",
+      "docLink": "https://react.dev/learn",
+      "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+      "video": "https://www.youtube.com/watch?v=Ke90Tje7VS0"
+    },
+    {
+      "category": "Frontend", 
+      "title": "TypeScript Fundamentals",
+      "description": "Add static typing to JavaScript for better development experience.",
+      "docLink": "https://www.typescriptlang.org/docs/",
+      "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+      "video": "https://www.youtube.com/watch?v=BwuLxPH8IDs"
+    },
+    {
+      "category": "Frontend",
+      "title": "Tailwind CSS",
+      "description": "Rapidly build modern websites with utility-first CSS framework.",
+      "docLink": "https://tailwindcss.com/docs/installation",
+      "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg",
+      "video": "https://www.youtube.com/watch?v=UBOj6rqRUME"
+    },
+    {
+      "category": "Frontend",
+      "title": "Next.js Full-Stack",
+      "description": "Create production-ready React applications with Next.js framework.",
+      "docLink": "https://nextjs.org/docs/getting-started",
+      "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+      "video": "https://www.youtube.com/watch?v=9P8mASSREYM"
+    },
+    {
+      "category": "Backend",
+      "title": "Ruby on Rails Quickstart",
+      "description": "A beginner's guide to building web apps with Rails.",
+      "docLink": "https://guides.rubyonrails.org/getting_started.html",
+      "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rails/rails-original-wordmark.svg",
+      "video": "https://www.youtube.com/watch?v=fmyvWz5TUWg"
+    },
+    {
+      "category": "Backend",
+      "title": "Flask Essentials",
+      "description": "Build lightweight Python web apps using Flask.",
+      "docLink": "https://flask.palletsprojects.com/en/latest/quickstart/",
+      "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg",
+      "video": "https://www.youtube.com/watch?v=Z1RJmh_OqeA"
+    },
+    {
+      "category": "Backend",
+      "title": "Go Web Development",
+      "description": "Start building web servers and APIs with Golang.",
+      "docLink": "https://go.dev/doc/tutorial/web-service-gin",
+      "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg",
+      "video": "https://www.youtube.com/watch?v=SonwZ6MF5BE"
+    },
+    {
+      "category": "Backend",
+      "title": "Node.js & Express",
+      "description": "Build scalable backend applications with JavaScript runtime.",
+      "docLink": "https://nodejs.org/en/docs/guides/getting-started-guide",
+      "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+      "video": "https://www.youtube.com/watch?v=Oe421EPjeBE"
+    },
+    {
+      "category": "Backend",
+      "title": "Django Web Framework",
+      "description": "Rapid development with Python's high-level web framework.",
+      "docLink": "https://docs.djangoproject.com/en/stable/intro/tutorial01/",
+      "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg",
+      "video": "https://www.youtube.com/watch?v=F5mRW0jo-U4"
+    },
+    {
+      "category": "Backend",
+      "title": "Spring Boot Java",
+      "description": "Enterprise-grade applications with Spring Boot framework.",
+      "docLink": "https://spring.io/guides/gs/spring-boot/",
+      "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg",
+      "video": "https://www.youtube.com/watch?v=9SGDpanrc8U"
+    },
+    {
+      "category": "Backend",
+      "title": "Database Design & SQL",
+      "description": "Master relational databases and SQL query optimization.",
+      "docLink": "https://www.postgresql.org/docs/current/tutorial.html",
+      "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+      "video": "https://www.youtube.com/watch?v=HXV3zeQKqGY"
+    },
+    {
+      "category": "APIs",
+      "title": "API Security Fundamentals",
+      "description": "Learn best practices for securing REST and GraphQL APIs.",
+      "docLink": "https://owasp.org/www-project-api-security/",
+      "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+      "video": "https://www.youtube.com/watch?v=jeG5yZ9MwJ0"
+    },
+    {
+      "category": "APIs",
+      "title": "OpenAPI (Swagger) Introduction",
+      "description": "Document your RESTful APIs with the OpenAPI specification.",
+      "docLink": "https://swagger.io/docs/specification/about/",
+      "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swagger/swagger-original.svg",
+      "video": "https://www.youtube.com/watch?v=ph-U9yS42Mk"
+    },
+    {
+      "category": "APIs",
+      "title": "Postman for API Testing",
+      "description": "Master API testing and collaboration using Postman.",
+      "docLink": "https://learning.postman.com/docs/getting-started/introduction/",
+      "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg",
+      "video": "https://www.youtube.com/watch?v=VywxIQ2ZXw4"
+    },
+    {
+      "category": "APIs",
+      "title": "GraphQL Fundamentals",
+      "description": "Query language for APIs and runtime for executing queries.",
+      "docLink": "https://graphql.org/learn/",
+      "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg",
+      "video": "https://www.youtube.com/watch?v=ed8SzALpx1Q"
+    },
+    {
+      "category": "APIs",
+      "title": "REST API Best Practices",
+      "description": "Design principles and conventions for RESTful web services.",
+      "docLink": "https://restfulapi.net/",
+      "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg",
+      "video": "https://www.youtube.com/watch?v=llpr5924N7E"
+    },
+    {
+      "category": "APIs",
+      "title": "API Rate Limiting",
+      "description": "Implement throttling and rate limiting for API endpoints.",
+      "docLink": "https://docs.github.com/en/rest/overview/resources-in-the-rest-api#rate-limiting",
+      "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg",
+      "video": "https://www.youtube.com/watch?v=mhUQe4BKZXs"
+    },
+    {
+      "category": "APIs",
+      "title": "Microservices Architecture",
+      "description": "Design and implement distributed systems with microservices.",
+      "docLink": "https://microservices.io/patterns/microservices.html",
+      "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+      "video": "https://www.youtube.com/watch?v=y8OnoxKotPQ"
+    },
+    {
+      "category": "UIUX",
+      "title": "Adobe XD for Beginners",
+      "description": "Get started with prototyping and UI design in Adobe XD.",
+      "docLink": "https://helpx.adobe.com/xd/tutorials.html",
+      "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/xd/xd-plain.svg",
+      "video": "https://www.youtube.com/watch?v=68w2VwalD5w"
+    },
+    {
+      "category": "UIUX",
+      "title": "Color Theory in UI Design",
+      "description": "Learn how to choose and combine colors effectively in UI design.",
+      "docLink": "https://www.toptal.com/designers/ui/color-in-ui-design-a-practical-framework",
+      "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg",
+      "video": "https://www.youtube.com/watch?v=_2LLXnUdUIc"
+    },
+    {
+      "category": "UIUX",
+      "title": "Typography for Interfaces",
+      "description": "Understand how typography impacts readability and user experience.",
+      "docLink": "https://uxdesign.cc/a-beginners-guide-to-typography-in-ux-ui-design-2564bcb6355b",
+      "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg",
+      "video": "https://www.youtube.com/watch?v=52tj5EON7yw"
+    },
+    {
+      "category": "UIUX",
+      "title": "User Research Methods",
+      "description": "Learn to conduct user interviews, surveys, and usability testing.",
+      "docLink": "https://www.nngroup.com/articles/which-ux-research-methods/",
+      "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg",
+      "video": "https://www.youtube.com/watch?v=Qq3OiHQ-HCU"
+    },
+    {
+      "category": "UIUX",
+      "title": "Wireframing & Prototyping",
+      "description": "Create low and high-fidelity prototypes for user testing.",
+      "docLink": "https://balsamiq.com/learn/articles/what-are-wireframes/",
+      "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sketch/sketch-original.svg",
+      "video": "https://www.youtube.com/watch?v=qpH7-KFWZRI"
+    },
+    {
+      "category": "UIUX",
+      "title": "Accessibility in Design",
+      "description": "Design inclusive interfaces that work for users with disabilities.",
+      "docLink": "https://www.w3.org/WAI/WCAG21/quickref/",
+      "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/chrome/chrome-original.svg",
+      "video": "https://www.youtube.com/watch?v=fGLp_gfMMGU"
+    },
+    {
+      "category": "UIUX",
+      "title": "Design Systems",
+      "description": "Build consistent and scalable design languages for products.",
+      "docLink": "https://www.designsystems.com/",
+      "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/storybook/storybook-original.svg",
+      "video": "https://www.youtube.com/watch?v=wc5krO28EuU"
+    }
+  ]
+}
