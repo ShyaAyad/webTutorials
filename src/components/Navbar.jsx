@@ -17,7 +17,7 @@ const Navbar = () => {
                         min-h-16 sm:min-h-20 flex flex-col md:flex-row justify-between items-center shadow-lg relative'>
         
         <div className="flex justify-between items-center w-full md:w-auto">
-          <Link to="/home"
+          <Link to="/"
                 className="bg-indigo-300 w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 flex items-center
                             justify-center rounded-full text-black text-lg sm:text-xl md:text-2xl lg:text-3xl 
                             font-bold hover:bg-indigo-400 transition-colors"> 
