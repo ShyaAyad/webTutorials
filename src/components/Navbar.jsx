@@ -30,7 +30,6 @@ const Navbar = () => {
             aria-label="Toggle menu"
           >
 
-            {/* this is when user clicks on the many button and it opens the manu changes to a cross icon */}
             <div className={`w-6 h-0.5 bg-black transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`}></div>
             <div className={`w-6 h-0.5 bg-black transition-all duration-300 ${isMenuOpen ? 'opacity-0' : ''}`}></div>
             <div className={`w-6 h-0.5 bg-black transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`}></div>
@@ -40,7 +39,7 @@ const Navbar = () => {
         <nav className={`${
           isMenuOpen ? 'flex' : 'hidden'
         } md:flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-3 lg:space-x-6 xl:space-x-10 w-full md:w-auto mt-4 md:mt-0 pb-4 md:pb-0`}>
-          {/* we set the open to false once user clicks any of the links so the many closes and takes user to the clicked link */}
+          {/* we set the open to false once user clicks any of the links so the menu closes and takes user to the clicked link */}
           <Link onClick={() => setIsMenuOpen(false)}
                 className="text-black text-base md:text-lg lg:text-xl xl:text-2xl hover:text-indigo-600 transition-colors font-medium">
             Home
