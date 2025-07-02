@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken";
 import User from "../models/users.model.js";
 import { JWT_SECRET, JWT_EXPIRES_IN } from "../config/env.js";
 
-export const signUp = async (request, response) => {
+export const signUp = async (request, response, next) => {
   try {
     // get user's data from the request object;
     const { fullName, email, password } = request.body;
@@ -41,11 +41,7 @@ export const signUp = async (request, response) => {
       },
     });
   } catch (error) {
-    // if error occured, send error message back as a response;
-    response.status(401).json({
-      success: false,
-      message: error.message,
-    });
+    next(error);
   }
 };
 
@@ -84,9 +80,6 @@ export const signIn = async (request, response, next) => {
       },
     });
   } catch (error) {
-    response.status(401).json({
-      success: false,
-      message: error.message,
-    });
+    next(error);
   }
 };
