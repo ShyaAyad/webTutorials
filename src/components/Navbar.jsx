@@ -24,16 +24,23 @@ const Navbar = () => {
             Dev
           </Link>
 
-          <button 
-            onClick={toggleMenu}
-            className="md:hidden flex flex-col justify-center items-center w-8 h-8 space-y-1 focus:outline-none"
-            aria-label="Toggle menu"
-          >
+          <div className="flex">
+            <Link  to="register">
+              <img src="src/images/account.png"
+                 className="w-8 h-8 md:hidden"
+              />
+            </Link>
+            <button 
+              onClick={toggleMenu}
+              className="md:hidden flex flex-col justify-center items-center w-8 h-8 space-y-1 focus:outline-none"
+              aria-label="Toggle menu"
+            >
 
-            <div className={`w-6 h-0.5 bg-black transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`}></div>
-            <div className={`w-6 h-0.5 bg-black transition-all duration-300 ${isMenuOpen ? 'opacity-0' : ''}`}></div>
-            <div className={`w-6 h-0.5 bg-black transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`}></div>
-          </button>
+              <div className={`w-6 h-0.5 bg-black transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`}></div>
+              <div className={`w-6 h-0.5 bg-black transition-all duration-300 ${isMenuOpen ? 'opacity-0' : ''}`}></div>
+              <div className={`w-6 h-0.5 bg-black transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`}></div>
+            </button>
+          </div>
         </div>
 
         <nav className={`${
@@ -53,6 +60,11 @@ const Navbar = () => {
                 onClick={() => setIsMenuOpen(false)}
                 className="text-black text-base md:text-lg lg:text-xl xl:text-2xl hover:text-indigo-600 transition-colors font-medium">
             About
+          </Link>
+          <Link  to="/register" className="hidden md:block">
+              <img src="src/images/account.png"
+                 className="w-8 h-8"
+              />
           </Link>
         </nav>
       </div>

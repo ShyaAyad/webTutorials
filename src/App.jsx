@@ -12,6 +12,8 @@ import Frontend from "./pages/Frontend"
 import Backend from "./pages/Backend"
 import API from "./pages/API"
 import UIUX from "./pages/UIUX"
+import Register from "./pages/Register"
+import Login from "./pages/Login"
 
 function App() {
 
@@ -19,6 +21,11 @@ function App() {
     createRoutesFromElements(
       <Route path="/" element={<MainLayout />}>
           <Route index element={<Home />} />
+          
+          {/* lets see it for now */}
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+
           <Route path="/tutorial" element={<Tutorials />} />
           <Route path="/frontend" element={<Frontend category={"frontend"}/>} />
           <Route path="/backend" element={<Backend category={"backend"}/>} />
