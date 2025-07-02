@@ -1,3 +1,4 @@
 package*.json
 /backend/node_modules
 /backend/.env.development.local
+/node_modules
