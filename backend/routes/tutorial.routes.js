@@ -1,5 +1,16 @@
 // Defining endpoints for actions related to tutorials;
 import { Router } from "express";
+import {
+  getAllTutorials,
+  getFrontendTutorials,
+  getBackendTutorials,
+  getAPITutorials,
+  getUIUXTutorials,
+  getTutorialById,
+  createTutorial,
+  updateTutorial,
+  deleteTutorial,
+} from "../controllers/tutorials.controller.js";
 
 const tutorialRouter = Router();
 
