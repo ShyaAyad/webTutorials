@@ -19,6 +19,11 @@ const userSchema = new mongoose.Schema({
     required: true,
     trim: true,
   },
+  role: {
+    type: String,
+    enum: ["Admin", "User"],
+    default: "User",
+  }
 });
 
 // create the model out of the schema;

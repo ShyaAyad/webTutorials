@@ -47,7 +47,7 @@ export const authorize = async (request, response, next) => {
     const verifiedUser = jwt.verify(token, JWT_SECRET);
 
     // find the user whom this token belongs to;
-    const user = User.findById(verifiedUser.userId);
+    const user = await User.findById(verifiedUser.userId);
 
     // attach the user's data to the request object so other routes can use it
     request.user = user;
