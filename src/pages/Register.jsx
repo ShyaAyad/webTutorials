@@ -1,9 +1,38 @@
-import { Link } from "react-router-dom"
+
+import { useState } from "react"
+import { Link, useNavigate } from "react-router-dom"
+import axios from 'axios';
 
 const Register = () => {
 
-    const handleSubmit = (e) =>{
+    const [fullName, setFullName] = useState('')
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const navigate = useNavigate()
+
+    console.log("RANNNNNN")
+
+    const handleSubmit = async(e) => {
         e.preventDefault()
+        
+        try{
+            const res = await axios.post("http://localhost:8010/api/v1/auth/sign-up", {
+                fullName,
+                email,
+                password
+            },{
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+
+            console.log(res.data)
+            navigate("/")
+        }catch(error){
+
+            console.log("Error status: ", error.response?.status)
+            console.log("Error occured: ", error)
+        }
     }
 
     return (
@@ -33,17 +62,30 @@ const Register = () => {
                 >
                     <input 
                         type="text" placeholder="Full name"
+                        value={fullName}
+                        onChange={(e) => setFullName(e.target.value)}
+                        autoComplete="off"
+                        required
                         className="bg-amber-50 text-gray-900 w-full p-3 rounded-xl"
                     />
                     <input 
                         type="email" placeholder="Email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        autoComplete="off"
+                        required
                         className="bg-amber-50 text-gray-900 w-full p-3 rounded-xl mt-3"
                     />
                     <input 
                         type="password" placeholder="Enter your password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        autoComplete="off"
+                        required
                         className="bg-amber-50 text-gray-900 w-full p-3 rounded-xl mt-3"
                     />
-                    <button className= "mt-5 p-4 rounded-xl bg-indigo-300 text-xl hover:bg-pink-400 transition-colors duration-300">
+                    <button type="submit"
+                            className= "mt-5 p-4 rounded-xl bg-indigo-300 text-xl hover:bg-pink-400 transition-colors duration-300">
                         Create account
                     </button>
                 </form>
