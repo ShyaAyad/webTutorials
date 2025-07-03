@@ -1,6 +1,6 @@
 import Tutorial from "../models/tutorials.model.js";
 
-export const getAllTutorials = async (request, response, next) => {
+export const getAllTutorials = async (request, response) => {
   try {
     // fetch all the tutorials regardless of the category;
     const tutorials = await Tutorial.find();
@@ -21,7 +21,7 @@ export const getAllTutorials = async (request, response, next) => {
   }
 };
 
-export const getFrontendTutorials = async (request, response, next) => {
+export const getFrontendTutorials = async (request, response) => {
   try {
     // fetch all the tutorials where category is frontend;
     const tutorials = await Tutorial.find({ category: "Frontend" });
@@ -42,7 +42,7 @@ export const getFrontendTutorials = async (request, response, next) => {
   }
 };
 
-export const getBackendTutorials = async (request, response, next) => {
+export const getBackendTutorials = async (request, response) => {
   try {
     // fetch all the tutorials where category is backend;
     const tutorials = await Tutorial.find({ category: "Backend" });
@@ -63,7 +63,7 @@ export const getBackendTutorials = async (request, response, next) => {
   }
 };
 
-export const getAPITutorials = async (request, response, next) => {
+export const getAPITutorials = async (request, response) => {
   try {
     // fetch all the tutorials where category is api;
     const tutorials = await Tutorial.find({ category: "APIs" });
@@ -84,7 +84,7 @@ export const getAPITutorials = async (request, response, next) => {
   }
 };
 
-export const getUIUXTutorials = async (request, response, next) => {
+export const getUIUXTutorials = async (request, response) => {
   try {
     // fetch all the tutorials where category is uiux;
     const tutorials = await Tutorial.find({ category: "UIUX" });
@@ -105,10 +105,10 @@ export const getUIUXTutorials = async (request, response, next) => {
   }
 };
 
-export const getTutorialById = async (request, response, next) => {
+export const getTutorialById = async (request, response) => {
   try {
     // get tutorial Id;
-    const tutorialId = request.params.tutorialId;
+    const tutorialId = request.params.tutorialId * 1; // convert the id to a number;
 
     // fetch tutorial;
     const tutorial = await Tutorial.findById(tutorialId);
@@ -129,7 +129,7 @@ export const getTutorialById = async (request, response, next) => {
   }
 };
 
-export const createTutorial = async (request, response, next) => {
+export const createTutorial = async (request, response) => {
   try {
     // get the details for the new tutorial from the request object;
     const tutorialDetails = request.body;
@@ -163,7 +163,7 @@ export const createTutorial = async (request, response, next) => {
   }
 };
 
-export const updateTutorial = async (request, response, next) => {
+export const updateTutorial = async (request, response) => {
   try {
     // get the tutorial id from the request object;
     const tutorialId = request.params.tutorialId;
@@ -203,7 +203,7 @@ export const updateTutorial = async (request, response, next) => {
   }
 };
 
-export const deleteTutorial = async (request, response, next) => {
+export const deleteTutorial = async (request, response) => {
   try {
     // get the tutorial id we're deleting from the request object;
     const tutorialId = request.params.tutorialId;
