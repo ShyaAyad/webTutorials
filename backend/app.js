@@ -5,6 +5,7 @@ import { connectToDb } from "./database/connect.database.js";
 import authRouter from "./routes/auth.routes.js";
 import tutorialRouter from "./routes/tutorial.routes.js";
 import { errorHandler } from "./middlewares/error.middleware.js";
+import userRouter from "./routes/users.routes.js";
 
 const app = express();
 
@@ -21,6 +22,7 @@ app.use(
 // routes;
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/tutorials", tutorialRouter);
+app.use("/api/v1/users", userRouter);
 
 // global middlewares;
 app.use(errorHandler);
