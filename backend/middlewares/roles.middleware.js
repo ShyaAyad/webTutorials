@@ -1,4 +1,4 @@
-export const checkRole = async (requiredRole) => {
+export const checkRole = async () => {
   return (request, response, next) => {
     if (request.user || request.user.role !== "Admin") {
       response.status(403).json({
