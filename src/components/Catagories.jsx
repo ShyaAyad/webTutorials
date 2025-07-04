@@ -1,20 +1,22 @@
 import { useEffect, useState } from "react"
 import TutorialCard from "./TutorialCard"
 import { Link } from "react-router-dom"
+import axios from "axios"
 
-const catagories = () => {
+const Catagories = () => {
 
   const [category, setCategory] = useState([])
 
-  useEffect(()=> {
-    const fetchCatagoryData = async() => {
-      const response = await fetch("http://localhost:5000/tutorials")
-      const data = await response.json() 
-      setCategory(data)
-    }
+    useEffect(() => {
+      const fetchTutorials = async() => {
 
-    fetchCatagoryData() 
-  } , [])
+        const res = await axios.get("http://localhost:8010/api/v1/tutorials")
+        setCategory(res.data.data.tutorials)
+      }
+
+    fetchTutorials()
+
+  }, [])
 
   return (
      <section className="py-4 mt-15">
@@ -63,4 +65,4 @@ const catagories = () => {
   )
 }
 
-export default catagories
+export default Catagories

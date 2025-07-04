@@ -1,7 +1,8 @@
-
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import axios from 'axios';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faE, faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons"
 
 const Register = () => {
 
@@ -10,7 +11,11 @@ const Register = () => {
     const [password, setPassword] = useState('')
     const navigate = useNavigate()
 
-    console.log("RANNNNNN")
+    const [passVisibility, setPassVisibility] = useState(false)
+
+    function handlePasswordVisibility(){
+        setPassVisibility(prevState => !prevState)
+    }
 
     const handleSubmit = async(e) => {
         e.preventDefault()
@@ -46,8 +51,8 @@ const Register = () => {
             <div className="w-full lg:w-1/2 max-w-md">
                 {/* create account stuff */}
                 <div className="flex flex-col items-center">
-                    <h1 className="text-4xl mb-3 text-center text-indigo-300">
-                        Create an account
+                    <h1 className="text-5xl font-bold mb-3 text-center text-indigo-300">
+                        Create <span className="text-rose-400"> an </span> account
                     </h1>
 
                     <p className="mb-10">
@@ -76,14 +81,21 @@ const Register = () => {
                         required
                         className="bg-amber-50 text-gray-900 w-full p-3 rounded-xl mt-3"
                     />
-                    <input 
-                        type="password" placeholder="Enter your password"
+                    <div className="relative">
+                        <input 
+                        type={passVisibility ? "text" : "password"} placeholder="Enter your password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         autoComplete="off"
                         required
                         className="bg-amber-50 text-gray-900 w-full p-3 rounded-xl mt-3"
-                    />
+                        />
+                        <span className="absolute pt-3 right-3 top-1/2 transform -translate-y-1/2 text-gray-800">
+                            <FontAwesomeIcon icon={passVisibility? faEye : faEyeSlash}
+                                             onClick={handlePasswordVisibility}
+                            />
+                        </span>
+                    </div>
                     <button type="submit"
                             className= "mt-5 p-4 rounded-xl bg-indigo-300 text-xl hover:bg-pink-400 transition-colors duration-300">
                         Create account
