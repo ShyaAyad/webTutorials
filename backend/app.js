@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 import { PORT } from "./config/env.js";
 import { connectToDb } from "./database/connect.database.js";
 import authRouter from "./routes/auth.routes.js";
@@ -10,6 +11,12 @@ const app = express();
 // built-in || third-party middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(
+  cors({
+    origin: "*",
+    credentials: true,
+  })
+); // allowing the frontend to access the APIs;
 
 // routes;
 app.use("/api/v1/auth", authRouter);
