@@ -8,14 +8,16 @@ const Catagories = () => {
   const [category, setCategory] = useState([])
 
     useEffect(() => {
-      const fetchTutorials = async() => {
-
-        const res = await axios.get("http://localhost:8010/api/v1/tutorials")
-        setCategory(res.data.data.tutorials)
-      }
-
-    fetchTutorials()
-
+        const fetchTutorials = async() => {
+          try{
+            const res = await axios.get("http://localhost:8010/api/v1/tutorials")
+            setCategory(res.data.data.tutorials)
+          }catch(error){
+            console.error("Error occured while fetching data!")
+          }
+        }
+      
+      fetchTutorials()
   }, [])
 
   return (
@@ -35,7 +37,7 @@ const Catagories = () => {
               <TutorialCard>
                 <Link to='/backend'>
                     <div className="rounded-2xl p-8 bg-indigo-300 flex flex-col items-center">
-                      <img className="w-30" src="/src/images/database-icon.png" alt="Frontend icon" />
+                      <img className="w-30" src="/src/images/database-icon.png" alt="Backend icon" />
                       <h1 className="text-black text-3xl font-bold">Backend</h1>
                     </div>
                 </Link>
@@ -44,7 +46,7 @@ const Catagories = () => {
               <TutorialCard>
                 <Link to='/api'>
                     <div className="rounded-2xl p-8 bg-indigo-300 flex flex-col items-center">
-                      <img className="w-30" src="/src/images/puzzle-icon.png" alt="Frontend icon" />
+                      <img className="w-30" src="/src/images/puzzle-icon.png" alt="API icon" />
                       <h1 className="text-black text-3xl font-bold">APIs</h1>
                     </div>
                 </Link>
@@ -54,7 +56,7 @@ const Catagories = () => {
               <TutorialCard>
                 <Link to='/uiux'>
                     <div className="rounded-2xl p-8 bg-indigo-300 flex flex-col items-center">
-                      <img className="w-30" src="/src/images/ui-ux-icon.png" alt="Frontend icon" />
+                      <img className="w-30" src="/src/images/ui-ux-icon.png" alt="UIUX icon" />
                       <h1 className="text-black text-3xl font-bold">UI/UX</h1>
                     </div>
                 </Link>

@@ -3,7 +3,7 @@ import { useState } from "react"
 
 const Navbar = () => {
 
-  // handling the manu button clicking 
+  // handling the menu button clicking 
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const toggleMenu = () => {

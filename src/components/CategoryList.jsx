@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
+import Loader from "../components/Loader"
 
 const CategoryList = ({category}) => {
 
@@ -31,12 +32,16 @@ const CategoryList = ({category}) => {
 
     return (
         <section className="p-20 mt-10">
-            {filteredData.length === 0 ? 
+            {loader ? 
                 <div className="flex items-center justify-center">
-                    <p className="text-4xl">Nothing to be displayed</p>
-                </div> : 
-
-                (<div className="grid grid-cols-1 md:grid-cols-3 gap-20">
+                    <Loader />
+                </div> :
+                 filteredData.length === 0 ? 
+                 <div className="flex flex-col items-center justify-center">
+                    <p className="text-4xl">Nothing to be displayed...</p>
+                    <p className="text-3xl">Try again!</p>
+                </div> :
+                 (<div className="grid grid-cols-1 md:grid-cols-3 gap-20">
                     {filteredData.map((dataFiltered, index) => (
                         <div key={index}
                                 className="bg-indigo-300 p-5 rounded-3xl">
@@ -65,7 +70,8 @@ const CategoryList = ({category}) => {
                             </div>
                         </div>
                         ))}
-                </div>)}
+                </div>)
+                }
         </section>
     )
 }
