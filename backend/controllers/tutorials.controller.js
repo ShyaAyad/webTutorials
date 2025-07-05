@@ -171,17 +171,7 @@ export const updateTutorial = async (request, response) => {
     // get the new tutorial details from the request object;
     const newTutorialDetails = request.body;
 
-    // check if required fields aren't missing;
-    if (
-      !newTutorialDetails.category ||
-      !newTutorialDetails.title ||
-      !newTutorialDetails.docLink ||
-      !newTutorialDetails.video
-    ) {
-      throw new Error("Required data is missing!");
-    }
-
-    // otherwise, update;
+    // update;
     const tutorialAfterUpdate = await Tutorial.findByIdAndUpdate(
       tutorialId,
       newTutorialDetails

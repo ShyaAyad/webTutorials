@@ -7,13 +7,9 @@ run separately by:
 */
 
 import fs from "fs";
+import { JWT_SECRET } from "../config/env.js";
 
 const createAllTutorials = () => {
-  // The admin's token since only the admin can create tutorials;
-  // There are surely better ways to get the token but this works for now TT;
-  const token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODY5MjhkMjE5NWIyZWQ3YWQ0MmRjNGQiLCJpYXQiOjE3NTE3MjIyMTksImV4cCI6MTc1MTgwODYxOX0.LBTaK6n2pYX_BW62zX11tf95yW0Wti7oy4kUWpQCHTk";
-
   // Read the tutorial.json file;
   const rawTutorials = fs.readFileSync("../../tutorial.json", "utf-8");
 
@@ -26,7 +22,7 @@ const createAllTutorials = () => {
       await fetch("http://localhost:8010/api/v1/tutorials", {
         headers: {
           "Content-Type": "application/json",
-          authorization: `Bearer ${token}`,
+          authorization: `Bearer ${JWT_SECRET}`,
         },
         method: "POST",
         body: JSON.stringify({
@@ -34,15 +30,15 @@ const createAllTutorials = () => {
           title: tutorial.title,
           description: tutorial.description,
           docLink: tutorial.docLink,
-          image: tutorial.image,
+          image: tutorial.docLink,
           video: tutorial.video,
         }),
       });
     });
+
+    console.log("");
   } catch (error) {
     console.error("Error while creating tutorials: " + error.message);
-  } finally {
-    console.log("Done!");
   }
 };
 
