@@ -13,7 +13,7 @@ const Tutorials = () => {
     const browseTutorials = async() =>{
       try{
         setLoader(true)
-        const res = await axios.get("http://localhost:8010//api/v1/tutorials")
+        const res = await axios.get("http://localhost:8010/api/v1/tutorials")
         setTutorials(res.data.data.tutorials)
       }catch(error){
         console.log("Error occured while fetching data!", error)
