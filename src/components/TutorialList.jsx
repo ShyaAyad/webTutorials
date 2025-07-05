@@ -1,9 +1,11 @@
-const TutorialList = ({tutorial}) => {   
+const TutorialList = ({tutorial}) => {  
+  console.log(tutorial); 
   return (     
     <section className="flex flex-col justify-between bg-indigo-300 p-3 sm:p-5 mt-8 sm:mt-16 rounded-lg min-h-[400px] sm:min-h-[500px] mx-2 sm:mx-0">         
       <div className="bg-indigo-300 p-3 sm:p-5 mt-3 sm:mt-5 rounded-lg">             
         <img 
-          src={tutorial.social_image} 
+          referrerPolicy="no-referrer" 
+          src={tutorial.image} 
           alt={tutorial.title}
           className="w-full h-auto rounded-lg mb-4 object-cover max-h-48 sm:max-h-64"
         />             
@@ -14,7 +16,7 @@ const TutorialList = ({tutorial}) => {
           {tutorial.description}
         </p>             
         <a 
-          href={tutorial.canonical_url}
+          href={tutorial.docLink}
           target="_blank"
           rel="noopener noreferrer"
           className="inline-block mb-3 sm:mb-4"

@@ -34,7 +34,7 @@ const createAllTutorials = () => {
           title: tutorial.title,
           description: tutorial.description,
           docLink: tutorial.docLink,
-          image: tutorial.docLink,
+          image: tutorial.image,
           video: tutorial.video,
         }),
       });

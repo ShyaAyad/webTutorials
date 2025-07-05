@@ -108,7 +108,7 @@ export const getUIUXTutorials = async (request, response) => {
 export const getTutorialById = async (request, response) => {
   try {
     // get tutorial Id;
-    const tutorialId = request.params.tutorialId * 1; // convert the id to a number;
+    const tutorialId = request.params.tutorialId;
 
     // fetch tutorial;
     const tutorial = await Tutorial.findById(tutorialId);
