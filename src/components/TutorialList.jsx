@@ -7,7 +7,7 @@ const TutorialList = ({tutorial}) => {
           referrerPolicy="no-referrer" 
           src={tutorial.image} 
           alt={tutorial.title}
-          className="w-full h-auto rounded-lg mb-4 object-cover max-h-48 sm:max-h-64"
+          className="w-full h-auto rounded-lg mb-4 object-cover max-h-72 sm:max-h-96"
         />             
         <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-3 sm:mb-5 leading-tight">
           {tutorial.title}
@@ -25,10 +25,10 @@ const TutorialList = ({tutorial}) => {
             Complete article
           </p>             
         </a>             
-        <p className="text-base sm:text-lg lg:text-xl">                 
+        {/* <p className="text-base sm:text-lg lg:text-xl">                 
           <span className="font-bold">Genre: </span>                  
           {tutorial.tags}             
-        </p>         
+        </p>          */}
       </div>     
     </section>   
   ) 

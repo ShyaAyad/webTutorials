@@ -13,7 +13,9 @@ const CategoryList = ({category}) => {
             try{
                 setLoader(true)
                 const endPoint = category.toLowerCase()
-                const resp = await axios.get(`http://localhost:8010/api/v1/tutorials/${endPoint}`)
+                const resp = await axios.get(`http://localhost:8010/api/v1/tutorials/categories/${endPoint}`)
+
+                console.log("Response from the API: " + resp)
 
                 setFilteredData(resp.data.data.tutorials)
 

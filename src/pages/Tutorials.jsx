@@ -9,11 +9,15 @@ const Tutorials = () => {
   const [loader, setLoader] = useState(false)
 
   // fetching tutorials from the backend 
-    useEffect(() => {
+  useEffect(() => {
     const browseTutorials = async() =>{
       try{
         setLoader(true)
         const res = await axios.get("http://localhost:8010/api/v1/tutorials")
+        
+        // to see what the API returns (debugging actually)
+        console.log("API Response:", res.data);
+
         setTutorials(res.data.data.tutorials)
       }catch(error){
         console.log("Error occured while fetching data!", error)
@@ -23,19 +27,6 @@ const Tutorials = () => {
     }
     browseTutorials()
   }, [])
-
-  // useEffect(() => {
-  //   const browsTutorials = async() => {
-  //     try{
-  //       const resp = await fetch("https://dev.to/api/articles?tag=tutorial")
-  //       const data = await resp.json()
-  //       setTutorials(data);
-  //     }catch(error){
-  //       console.log("Error while fetching data, Please try again!", error)
-  //     }
-  //   }
-  //   browsTutorials();
-  // }, [])
 
   return (
     <>
