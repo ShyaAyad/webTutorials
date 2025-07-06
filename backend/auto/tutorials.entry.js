@@ -11,10 +11,10 @@ import { JWT_SECRET } from "../config/env.js";
 
 const createAllTutorials = () => {
   // Read the tutorial.json file;
-  const rawTutorials = fs.readFileSync("../../tutorial.json", "utf-8");
+  const tutorialsFromFile = fs.readFileSync("../../tutorial.json", "utf-8");
 
   // Convert it to a json object and get the tutorials array;
-  const tutorials = JSON.parse(rawTutorials).tutorials;
+  const tutorials = JSON.parse(tutorialsFromFile).tutorials;
 
   // Send a POST request with each tutorial's details to create it.
   try {

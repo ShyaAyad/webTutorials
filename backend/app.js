@@ -28,8 +28,8 @@ app.use("/api/v1/users", userRouter);
 app.use(errorHandler);
 
 // start the server;
-app.listen(PORT, async () => {
+app.listen(PORT, () => {
   console.log(`Server started on port ${PORT}`);
 
-  await connectToDb();
+  connectToDb();
 });
