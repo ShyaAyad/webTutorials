@@ -7,9 +7,8 @@ run separately by:
 */
 
 import fs from "fs";
-import { JWT_SECRET } from "../config/env.js";
 
-const createAllTutorials = () => {
+const createAllTutorials = async () => {
   // Read the tutorial.json file;
   const tutorialsFromFile = fs.readFileSync("../../tutorial.json", "utf-8");
 
@@ -18,11 +17,10 @@ const createAllTutorials = () => {
 
   // Send a POST request with each tutorial's details to create it.
   try {
-    tutorials.forEach(async (tutorial) => {
+    for (let tutorial of tutorials) {
       await fetch("http://localhost:8010/api/v1/tutorials", {
         headers: {
           "Content-Type": "application/json",
-          authorization: `Bearer ${JWT_SECRET}`,
         },
         method: "POST",
         body: JSON.stringify({
@@ -34,11 +32,11 @@ const createAllTutorials = () => {
           video: tutorial.video,
         }),
       });
-    });
+    }
 
-    console.log("");
+    console.log("Transfered all tutorials to the database!");
   } catch (error) {
-    console.error("Error while creating tutorials: " + error.message);
+    console.error("Error while transfering tutorials: " + error.message);
   }
 };
 
