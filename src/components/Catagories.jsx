@@ -30,7 +30,7 @@ const Catagories = () => {
                     <div className="rounded-2xl p-8 bg-indigo-300 flex flex-col items-center">
                       <img className="w-30" src="/src/images/monetor-icon.png" alt="Frontend icon" />
                       <h1 className="text-black text-3xl font-bold">Frontend</h1>
-                  </div>
+                    </div>
                 </Link>
               </TutorialCard>
 

@@ -7,7 +7,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="flex items-center justify-center ml-10 mt-20">
+    <div className="flex flex-col items-center justify-center ml-10 mt-20">
       <BlurText
         text="Explore Tutorials, Find what you want"
         delay={150}
@@ -15,7 +15,7 @@ const Hero = () => {
         direction="top"
         onAnimationComplete={handleAnimationComplete}
         className="text-6xl mb-8"
-      />
+      />  
     </div>
   )
 }
