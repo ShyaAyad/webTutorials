@@ -5,10 +5,7 @@ import { DB_CONNECTION_STRING } from "../config/env.js";
 // connect;
 export const connectToDb = async () => {
   mongoose
-    .connect(DB_CONNECTION_STRING, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    })
+    .connect(DB_CONNECTION_STRING)
     .then(() => {
       console.log("Successfully connected to the database!");
     })
