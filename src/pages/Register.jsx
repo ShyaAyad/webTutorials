@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom"
 import axios from 'axios';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons"
+import beBraveBg from "../images/beBraveBg.jpg";
 
 const Register = () => {
 
@@ -19,7 +20,7 @@ const Register = () => {
 
     const handleSubmit = async(e) => {
         e.preventDefault()
-        
+
         try{
             const res = await axios.post("http://localhost:8010/api/v1/auth/sign-up", {
                 fullName,
@@ -30,6 +31,17 @@ const Register = () => {
                     "Content-Type": "application/json"
                 }
             })
+
+            // getting the token from the backend
+            const token = res.data.token;
+
+            // check if there is a token
+            if(!token){
+                throw new Error ("You need to have an account");
+            }
+
+            // if so then store it: there are a lot of ways for storing it bas this is the best practice for our small project ig :)
+            localStorage.setItem("token", token);
 
             console.log(res.data)
             navigate("/")
@@ -43,7 +55,7 @@ const Register = () => {
     return (
         // main container
         <div className="flex flex-col sm:flex-row items-center justify-center m-5 sm:mt-20">
-            <img src="src/images/beBraveBg.jpg" 
+            <img src={beBraveBg}
                  className="w-full max-w-md lg:max-w-lg h-auto rounded-3xl"
             />
         

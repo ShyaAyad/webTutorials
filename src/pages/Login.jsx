@@ -1,14 +1,17 @@
 import { useState } from "react";
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons"
+import siltentRewarding from "../images/siltentRewarding.jpg"
 
 const Login = () => {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [passVisibility, setPassVisibility] = useState(false)
+
+    const navigate = useNavigate()
 
     function handlePasswordVisibility(){
         setPassVisibility(prevState => !prevState)
@@ -23,7 +26,16 @@ const Login = () => {
             password
             })
 
+            const token = res.data.token;
+
+            if(!token){
+                throw new Error ("You need to have an account");
+            }
+
+            localStorage.setItem("token", token)
+
             console.log(res.data)
+            navigate("/")
             
         }catch(error){
             console.log("Failed to login, Try again!", error)
@@ -33,7 +45,7 @@ const Login = () => {
 
     return (
         <div className="flex flex-col sm:flex-row items-center justify-center m-5 sm:mt-20">
-                <img src="src/images/siltentRewarding.jpg" 
+                <img src={siltentRewarding} 
                     className="w-full max-w-md lg:max-w-lg h-auto rounded-3xl"
                 />
             
