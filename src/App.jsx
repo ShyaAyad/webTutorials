@@ -15,66 +15,91 @@ import UIUX from "./pages/UIUX"
 import Register from "./pages/Register"
 import Login from "./pages/Login"
 import CreateTutorials from "./pages/CreateTutorials"
+import { useEffect, useState } from "react"
+import axios from "axios"
 
-
-// getting the token 
-const token = localStorage.getItem("token")
-
-// const createTutorial = async(tutorial) => {
-//   try{
-//     const res = await axios.post("http://localhost:8010/api/v1/tutorials", tutorial,{
-//       headers: {
-//         Authorization: `Bearer ${token}`
-//       }
-//     })
-
-//     console.log("Tutorial created: ", res.data)
-//     }catch(error){
-//       console.log("Error occured while creating new tutorial, Try again!")
-//     }
-// }
-
-const createTutorial = (tutorial) =>{
-  console.log(tutorial)
-}
-
-// update a tutorial 
-const updateTutorial = async(tutorial) => {
-  try{
-    const res = await axios.put(`http://localhost:8010/api/v1/tutorials/${tutorial._id}`, {
-      title: tutorial.title,
-      description: tutorial.description,
-      image: tutorial.image,
-      docLink: tutorial.docLink
-    },{
-      headers: {
-        Authorization: `Bearer ${token}`
-      }
-    })
-
-    console.log("Updated tutorial: ", res.data)
-
-  }catch(error){
-    console.log("Error occured while updating data, Try again!")
-  }
-}
-
-// delete a tutorial 
-const deleteTutorial = async(tutorial) => {
-  try{
-    const resp = await  axios.delete(`http://localhost:8010/api/v1/tutorials/${tutorial._id}`, {
-      headers: {
-        Authorization: `Bearer ${token}`
-      }
-    })
-
-    console.log("Delete tutorial successfully ", tutorial)
-  }catch(error){
-    console.log("Error occured while trying to delete the tutorial, Try again!")
-  }
-}
 
 function App() {
+
+  // lifting state up 
+  const [tutorials, setTutorials] = useState([]);
+  
+  useEffect(() => {
+    const fetchTutorials = async() => {
+      try{
+      //  setLoader(true)
+        const res = await axios.get("http://localhost:8010/api/v1/tutorials")
+
+          setTutorials(res.data.data.tutorials)
+        }catch(error){
+          console.log("Error occured while fetching data!", error)
+        }/* finally{
+          setLoader(false)
+        } */
+      }
+
+    fetchTutorials()
+
+  }, [])
+  
+  // getting the token 
+  const token = localStorage.getItem("token")
+  // methods for handling the tutorials 
+  const createTutorial = async(tutorial) => {
+    try{
+      const res = await axios.post("http://localhost:8010/api/v1/tutorials", tutorial,{
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
+        console.log("Tutorial created: ", res.data.data)
+
+        const newTutorial = res.data.data.tutorial
+        setTutorials((prevTutorial) => [...prevTutorial, newTutorial])
+        return newTutorial
+      
+      }catch(error){
+        console.log("Error occured while creating new tutorial, Try again!")
+      }
+  }
+
+  // update a tutorial 
+  const updateTutorial = async(tutorial) => {
+    try{
+      const res = await axios.put(`http://localhost:8010/api/v1/tutorials/${tutorial._id}`, {
+        title: tutorial.title,
+        description: tutorial.description,
+        image: tutorial.image,
+        docLink: tutorial.docLink
+      },{
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
+
+      console.log("Updated tutorial: ", res.data)
+
+    }catch(error){
+      console.log("Error occured while updating data, Try again!")
+    }
+  }
+
+  // delete a tutorial 
+  const deleteTutorial = async(tutorial) => {
+    try{
+      const resp = await  axios.delete(`http://localhost:8010/api/v1/tutorials/${tutorial._id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
+
+      console.log("Delete tutorial successfully ", tutorial)
+    }catch(error){
+      console.log("Error occured while trying to delete the tutorial, Try again!")
+    }
+  }
+
+
 
   const router = createBrowserRouter(
     createRoutesFromElements(
@@ -84,7 +109,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
 
-          <Route path="/tutorial" element={<Tutorials />} />
+          <Route path="/tutorial" element={<Tutorials tutorials={tutorials}/>} />
           <Route path="/frontend" element={<Frontend category={"frontend"}/>} />
           <Route path="/backend" element={<Backend category={"backend"}/>} />
           <Route path="/api" element={<API category={"APIs"}/>} />

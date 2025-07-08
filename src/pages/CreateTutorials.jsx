@@ -26,10 +26,21 @@ const CreateTutorials = ({addTutorial}) => {
             video
         }
 
-        console.log("Sending tutorial:", newTutorial);
+        console.log(newTutorial);
 
-        addTutorial(newTutorial)
-        return navigate('/tutorial')
+        const create = await addTutorial(newTutorial);
+
+        try{
+            if(create){
+                // redirecting user to the tutorials page after creating one
+                navigate("/tutorial"); 
+                console.log("Tutorial created successfully")
+            }else{
+                console.log("Failed to create tutorial, try again!")
+            }
+        } catch (error) {
+            console.log("Error occured while creating a new tutorial, Try again!" , error)
+        }
     }
 
 
@@ -62,10 +73,10 @@ const CreateTutorials = ({addTutorial}) => {
                             <select value={category}
                                     onChange={(e) => setCategory(e.target.value)}
                                     className="w-full px-3 py-2 sm:px-4 sm:py-3 text-sm sm:text-base rounded-lg md:rounded-xl border-1 border-gray-600 bg-white text-black">
-                                <option value="frontend" className="text-black">Frontend Development</option>
-                                <option value="backend" className="text-black">Backend Development</option>
-                                <option value="api" className="text-black">API Development</option>
-                                <option value="uiux" className="text-black">UI/UX Design</option>
+                                <option value="Frontend" className="text-black">Frontend Development</option>
+                                <option value="Backend" className="text-black">Backend Development</option>
+                                <option value="APIs" className="text-black">API Development</option>
+                                <option value="UIUX" className="text-black">UI/UX Design</option>
                             </select>
                         </div>
 

@@ -65,6 +65,7 @@ const Navbar = () => {
           </Link>
 
           <Link to="/createTutorial"
+                onClick={() => setIsMenuOpen(false)}
                 className="text-black text-base md:text-lg lg:text-xl xl:text-2xl hover:text-indigo-600 transition-colors font-medium">
             Create tutorial
           </Link>
