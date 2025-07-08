@@ -51,16 +51,24 @@ const Navbar = () => {
                 className="text-black text-base md:text-lg lg:text-xl xl:text-2xl hover:text-indigo-600 transition-colors font-medium">
             Home
           </Link>
+
           <Link to="/tutorial"
                 onClick={() => setIsMenuOpen(false)}
                 className="text-black text-base md:text-lg lg:text-xl xl:text-2xl hover:text-indigo-600 transition-colors font-medium">
             Tutorials
           </Link>
+
           <Link to="/about"
                 onClick={() => setIsMenuOpen(false)}
                 className="text-black text-base md:text-lg lg:text-xl xl:text-2xl hover:text-indigo-600 transition-colors font-medium">
             About
           </Link>
+
+          <Link to="/createTutorial"
+                className="text-black text-base md:text-lg lg:text-xl xl:text-2xl hover:text-indigo-600 transition-colors font-medium">
+            Create tutorial
+          </Link>
+
           <Link  to="/register" className="hidden md:block">
               <img src="src/images/account.png"
                  className="w-8 h-8"

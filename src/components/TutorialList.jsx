@@ -25,10 +25,6 @@ const TutorialList = ({tutorial}) => {
             Complete article
           </p>             
         </a>             
-        {/* <p className="text-base sm:text-lg lg:text-xl">                 
-          <span className="font-bold">Genre: </span>                  
-          {tutorial.tags}             
-        </p>          */}
       </div>     
     </section>   
   ) 

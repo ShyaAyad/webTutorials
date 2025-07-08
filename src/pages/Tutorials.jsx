@@ -16,7 +16,7 @@ const Tutorials = () => {
         const res = await axios.get("http://localhost:8010/api/v1/tutorials")
         
         // to see what the API returns (debugging actually)
-        console.log("API Response:", res.data);
+        // console.log("API Response:", res.data);
 
         setTutorials(res.data.data.tutorials)
       }catch(error){

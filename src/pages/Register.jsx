@@ -33,7 +33,12 @@ const Register = () => {
             })
 
             // getting the token from the backend
-            const token = res.data.token;
+            /* data: {
+                user,
+                token
+            } so we gotta access the token like below 
+            */
+            const token = res.data.data.token;
 
             // check if there is a token
             if(!token){
