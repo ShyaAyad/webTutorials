@@ -9,6 +9,7 @@ export const getAllTutorials = async (request, response) => {
     response.status(200).json({
       success: true,
       message: "Fetched all tutorials",
+      result: tutorials.length,
       data: {
         tutorials,
       },
