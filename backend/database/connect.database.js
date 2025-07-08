@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 import { DB_CONNECTION_STRING } from "../config/env.js";
 
 // connect;
-export const connectToDb = async () => {
+export const connectToDb = () => {
   mongoose
     .connect(DB_CONNECTION_STRING)
     .then(() => {

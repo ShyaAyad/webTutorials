@@ -26,7 +26,7 @@ const Login = () => {
             password
             })
 
-            const token = res.data.token;
+            const token = res.data.data.token;
 
             if(!token){
                 throw new Error ("You need to have an account");
