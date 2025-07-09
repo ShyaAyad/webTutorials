@@ -11,8 +11,8 @@ import {
   updateTutorial,
   deleteTutorial,
 } from "../controllers/tutorials.controller.js";
-// import { authorize } from "../middlewares/auth.middleware.js";
-// import { checkRole } from "../middlewares/roles.middleware.js";
+import { authorize } from "../middlewares/auth.middleware.js";
+import { checkRole } from "../middlewares/roles.middleware.js";
 
 const tutorialRouter = Router();
 
@@ -23,16 +23,10 @@ tutorialRouter.get("/categories/apis", getAPITutorials); // get API tutorials;
 tutorialRouter.get("/categories/uiux", getUIUXTutorials); // get UIUX tutorials;
 tutorialRouter.get("/:tutorialId", getTutorialById); // get a specific tutorial by id;
 
-tutorialRouter.post("/", /* authorize, checkRole, */ createTutorial); // create a tutorial;
+tutorialRouter.post("/", authorize, checkRole, createTutorial); // create a tutorial;
 
-tutorialRouter.patch(
-  "/:tutorialId",
-  /* authorize, checkRole, */ updateTutorial
-); // update a tutorial;
+tutorialRouter.patch("/:tutorialId", authorize, checkRole, updateTutorial); // update a tutorial;
 
-tutorialRouter.delete(
-  "/:tutorialId",
-  /* authorize, checkRole, */ deleteTutorial
-); // delete a tutorial;
+tutorialRouter.delete("/:tutorialId", authorize, checkRole, deleteTutorial); // delete a tutorial;
 
 export default tutorialRouter;

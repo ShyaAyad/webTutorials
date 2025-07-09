@@ -111,15 +111,6 @@ export const updateUser = async (request, response) => {
     // get the new user data;
     const newUserDetails = request.body;
 
-    // check if required data is not missing;
-    if (
-      !newUserDetails.fullName ||
-      !newUserDetails.email ||
-      !newUserDetails.password
-    ) {
-      throw new Error("Required data is missing!");
-    }
-
     // hash password before updating it;
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(newUserDetails.password, salt);
