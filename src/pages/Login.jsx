@@ -29,11 +29,12 @@ const Login = () => {
             const {token, user} = res.data.data;
 
             // check if there is a token and a user
-            if(!token || !!user){
+            if(!token || !user){
                 throw new Error ("Missing user or token!");
             }
 
             localStorage.setItem("token", token)
+            localStorage.setItem("user", JSON.stringify(user))
 
             console.log(res.data)
             navigate("/")
