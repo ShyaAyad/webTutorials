@@ -1,10 +1,15 @@
 import { Link } from "react-router-dom"
 import { useState } from "react"
+import { faPlus, faLock } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
-const Navbar = () => {
+const Navbar = ({tutorials}) => {
 
   // handling the menu button clicking 
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+  // for getting the users role from the backend
+  const user = JSON.parse(localStorage.getItem("user"));
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
@@ -64,11 +69,13 @@ const Navbar = () => {
             About
           </Link>
 
-          <Link to="/createTutorial"
+          {/* only admins can add new tutorials */}
+          {user?.role === "Admin" && (<Link to="/createTutorial"
                 onClick={() => setIsMenuOpen(false)}
                 className="text-black text-base md:text-lg lg:text-xl xl:text-2xl hover:text-indigo-600 transition-colors font-medium">
-            Create tutorial
-          </Link>
+              <FontAwesomeIcon icon={faPlus} className="mr-2"/>Create
+              </Link>)
+          }
 
           <Link  to="/register" className="hidden md:block">
               <img src="src/images/account.png"

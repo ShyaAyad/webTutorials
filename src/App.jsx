@@ -17,6 +17,8 @@ import Login from "./pages/Login"
 import CreateTutorials from "./pages/CreateTutorials"
 import { useEffect, useState } from "react"
 import axios from "axios"
+import EditTutorial from "./EditTutorial"
+import { loadTutorial } from "./components/TutorialList"
 
 
 function App() {
@@ -55,6 +57,8 @@ function App() {
         console.log("Tutorial created: ", res.data.data)
 
         const newTutorial = res.data.data.tutorial
+
+        // spreading the whole tutorials, and adding the new one to them 
         setTutorials((prevTutorial) => [...prevTutorial, newTutorial])
         return newTutorial
       
@@ -66,11 +70,12 @@ function App() {
   // update a tutorial 
   const updateTutorial = async(tutorial) => {
     try{
-      const res = await axios.put(`http://localhost:8010/api/v1/tutorials/${tutorial._id}`, {
+      const res = await axios.patch(`http://localhost:8010/api/v1/tutorials/${tutorial._id}`, {
         title: tutorial.title,
         description: tutorial.description,
         image: tutorial.image,
-        docLink: tutorial.docLink
+        docLink: tutorial.docLink,
+        video: tutorial.video
       },{
         headers: {
           Authorization: `Bearer ${token}`
@@ -83,23 +88,6 @@ function App() {
       console.log("Error occured while updating data, Try again!")
     }
   }
-
-  // delete a tutorial 
-  const deleteTutorial = async(tutorial) => {
-    try{
-      const resp = await  axios.delete(`http://localhost:8010/api/v1/tutorials/${tutorial._id}`, {
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      })
-
-      console.log("Delete tutorial successfully ", tutorial)
-    }catch(error){
-      console.log("Error occured while trying to delete the tutorial, Try again!")
-    }
-  }
-
-
 
   const router = createBrowserRouter(
     createRoutesFromElements(
@@ -116,7 +104,8 @@ function App() {
           <Route path="/uiux" element={<UIUX category={"UI/UX"}/>} />
           
           {/* passing the function to the component so that we can create a new tutorial */}
-          <Route path="/createTutorial" element={<CreateTutorials addTutorial={createTutorial}/>} />
+          <Route path="/createTutorial" element={<CreateTutorials addTutorial={createTutorial} />} />
+          <Route path="/editTutorial/:id" element={<EditTutorial updateTutorial={updateTutorial} />} loader={loadTutorial} />
           <Route path="/about" element={<About />} />
       </Route>
     )

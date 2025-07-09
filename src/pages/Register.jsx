@@ -38,11 +38,11 @@ const Register = () => {
                 token
             } so we gotta access the token like below 
             */
-            const token = res.data.data.token;
+            const {token, user} = res.data.data;
 
-            // check if there is a token
-            if(!token){
-                throw new Error ("You need to have an account");
+            // check if there is a token and a user
+            if(!token || !user){
+                throw new Error ("Missing user or token!");
             }
 
             // if so then store it: there are a lot of ways for storing it bas this is the best practice for our small project ig :)

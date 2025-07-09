@@ -1,23 +1,26 @@
-import { Link, useNavigate } from "react-router-dom"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
+import { useNavigate, useParams, Link, useLoaderData } from 'react-router-dom'
+import { useState } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 
-const CreateTutorials = ({addTutorial}) => {
-
-    const [title, setTitle] = useState("")
-    const [category, setCategory] = useState("")
-    const [poster, setPoster] = useState("")
-    const [description, setDescription] = useState("")
-    const [document, setDocument] = useState("")
-    const [video, setVideo] = useState("");
-
+const EditeTutorial = ({updateTutorial}) => {
+  
+    const tutorials = useLoaderData() // this loads the data 
+    const { id } = useParams()
     const navigate = useNavigate();
 
-    const handleCreatingTutorial = async(e) => {
+    const [title, setTitle] = useState(tutorials.title)
+    const [category, setCategory] = useState(tutorials.category)
+    const [poster, setPoster] = useState(tutorials.image)
+    const [description, setDescription] = useState(tutorials.description)
+    const [document, setDocument] = useState(tutorials.document)
+    const [video, setVideo] = useState(tutorials.video);
+
+    const handleUpdating = async(e) => {
         e.preventDefault();
 
         const newTutorial = {
+            _id: id,
             title,
             category,
             image: poster,
@@ -27,20 +30,8 @@ const CreateTutorials = ({addTutorial}) => {
         }
 
         console.log(newTutorial);
-
-        const create = await addTutorial(newTutorial);
-
-        try{
-            if(create){
-                // redirecting user to the tutorials page after creating one
-                navigate("/tutorial"); 
-                console.log("Tutorial created successfully")
-            }else{
-                console.log("Failed to create tutorial, try again!")
-            }
-        } catch (error) {
-            console.log("Error occured while creating a new tutorial, Try again!" , error)
-        }
+        updateTutorial(newTutorial);
+        return navigate("/tutorial")
     }
 
 
@@ -53,15 +44,15 @@ const CreateTutorials = ({addTutorial}) => {
 
                 {/* header content  */}
                 <div className="text-center my-4 md:my-8">
-                    <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-indigo-400">Create new tutorial</h1>
+                    <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-indigo-400">Update tutorial</h1>
                 </div>
             
                 
                 <div className="p-4 sm:p-6 space-y-4 sm:space-y-6">
-                    <form onSubmit={handleCreatingTutorial}>
+                    <form onSubmit={handleUpdating}>
                         <div className="space-y-1 sm:space-y-2">
                             <label className="block text-black text-sm sm:text-base md:text-lg font-semibold">Title: </label>
-                            <input type="text" placeholder="Write title of the tutorial"
+                            <input type="text"
                                 value={title}
                                 onChange={(e) => setTitle(e.target.value)}
                                 required
@@ -84,7 +75,7 @@ const CreateTutorials = ({addTutorial}) => {
 
                         <div className="space-y-1 sm:space-y-2">
                             <label className="block text-sm sm:text-base md:text-lg font-semibold text-black">Tutorial poster</label>
-                            <input type="text" placeholder="https://example.com/poster.png"
+                            <input type="text"
                                    value={poster}
                                    onChange={(e) => setPoster(e.target.value)}
                                    required
@@ -97,7 +88,6 @@ const CreateTutorials = ({addTutorial}) => {
                             <textarea  
                                     className="text-black w-full px-3 py-2 sm:px-4 sm:py-3 text-sm sm:text-base rounded-lg md:rounded-xl border-1 border-gray-600 resize-none placeholder:text-gray-600" 
                                     rows="3 sm:rows-4" 
-                                    placeholder="Write an eye catching description..."
                                     value={description}
                                     onChange={(e) => setDescription(e.target.value)}
                                     required
@@ -109,7 +99,6 @@ const CreateTutorials = ({addTutorial}) => {
                             <input 
                                 className="text-black w-full px-3 py-2 sm:px-4 sm:py-3 text-sm sm:text-base rounded-lg md:rounded-xl border-1 border-gray-600 placeholder:text-gray-600" 
                                 type="text"
-                                placeholder="https://documentLink.com/document"
                                 value={document}
                                 onChange={(e) => setDocument(e.target.value)}
                                 required
@@ -120,7 +109,6 @@ const CreateTutorials = ({addTutorial}) => {
                             <label className="block text-sm sm:text-base md:text-lg font-semibold text-black">Video Link:</label>
                             <input
                                 type="text"
-                                placeholder="https://youtube.com/..."
                                 value={video}
                                 onChange={(e) => setVideo(e.target.value)}
                                 required
@@ -133,7 +121,7 @@ const CreateTutorials = ({addTutorial}) => {
                             <button 
                                 className= "mt-5 p-4 rounded-xl bg-indigo-400 text-xl hover:bg-pink-400 transition-colors duration-300 w-full"
                             >
-                                Create
+                                Update Tutorial
                             </button>
                         </div>
                         
@@ -150,4 +138,4 @@ const CreateTutorials = ({addTutorial}) => {
     )
 }
 
-export default CreateTutorials
+export default EditeTutorial

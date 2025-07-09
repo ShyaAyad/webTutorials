@@ -26,10 +26,11 @@ const Login = () => {
             password
             })
 
-            const token = res.data.data.token;
+            const {token, user} = res.data.data;
 
-            if(!token){
-                throw new Error ("You need to have an account");
+            // check if there is a token and a user
+            if(!token || !!user){
+                throw new Error ("Missing user or token!");
             }
 
             localStorage.setItem("token", token)
