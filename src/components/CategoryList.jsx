@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
 import Loader from "../components/Loader"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faNoteSticky, faPlayCircle } from "@fortawesome/free-solid-svg-icons"
 
 const CategoryList = ({category}) => {
 
@@ -56,19 +58,30 @@ const CategoryList = ({category}) => {
                             <p className="font-sans text-[20px]">
                                 {dataFiltered.description}
                             </p>
-                            <div className="flex justify-between">
-                                <a href={dataFiltered.video}
-                                target="_blank"
-                                className="underline text-2xl"
-                                >
-                                    Watch video
-                                </a>
-                                <a href={dataFiltered.docLink}
-                                target="_blank"
-                                className="underline text-2xl"
-                                >
-                                    Read document
-                                </a>
+                            <div className="flex flex-col">
+                                <a 
+                                    href={dataFiltered.docLink}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="mb-3 sm:mb-4"
+                                >                 
+                                    <p className="text-base sm:text-lg lg:text-xl">
+                                        <FontAwesomeIcon icon={faNoteSticky}/>
+                                        <span className="text-xl ml-2 hover:text-indigo-800 transition-colors">Documentation</span>
+                                    </p>             
+                                </a>   
+                            
+                                <a 
+                                    href={dataFiltered.video}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                     className="mb-3 sm:mb-4"
+                                >                 
+                                    <p className="text-base sm:text-lg lg:text-x">
+                                        <FontAwesomeIcon icon={faPlayCircle}/> 
+                                        <span className="text-xl ml-2 hover:text-indigo-800 transition-colors">Video tutorial</span>
+                                    </p>             
+                                </a> 
                             </div>
                         </div>
                         ))}
