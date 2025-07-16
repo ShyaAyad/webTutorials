@@ -2,6 +2,7 @@ import { Link } from "react-router-dom"
 import { useState } from "react"
 import { faPlus, faLock } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import userIcon from "../images/account.png";
 
 const Navbar = ({tutorials}) => {
 
@@ -78,7 +79,7 @@ const Navbar = ({tutorials}) => {
           }
 
           <Link  to="/register" className="hidden md:block">
-              <img src="src/images/account.png"
+              <img src={userIcon}
                  className="w-8 h-8"
               />
           </Link>
