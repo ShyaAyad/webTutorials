@@ -2,6 +2,11 @@ import { useEffect, useState } from "react"
 import TutorialCard from "./TutorialCard"
 import { Link } from "react-router-dom"
 import axios from "axios"
+import monitorIcon from "../images/monetor-icon.png";
+import databaseIcon from "../images/database-icon.png";
+import puzzleIcon from "../images/puzzle-icon.png";
+import uiuxIcon from "../images/ui-ux-icon.png";
+
 
 const Catagories = () => {
 
@@ -28,7 +33,7 @@ const Catagories = () => {
               <TutorialCard>
                 <Link to='/frontend'>
                     <div className="rounded-2xl p-8 bg-indigo-300 flex flex-col items-center">
-                      <img className="w-30" src="/src/images/monetor-icon.png" alt="Frontend icon" />
+                      <img className="w-30" src={monitorIcon} alt="Frontend icon" />
                       <h1 className="text-black text-3xl font-bold">Frontend</h1>
                     </div>
                 </Link>
@@ -37,7 +42,7 @@ const Catagories = () => {
               <TutorialCard>
                 <Link to='/backend'>
                     <div className="rounded-2xl p-8 bg-indigo-300 flex flex-col items-center">
-                      <img className="w-30" src="/src/images/database-icon.png" alt="Backend icon" />
+                      <img className="w-30" src={databaseIcon} alt="Backend icon" />
                       <h1 className="text-black text-3xl font-bold">Backend</h1>
                     </div>
                 </Link>
@@ -46,7 +51,7 @@ const Catagories = () => {
               <TutorialCard>
                 <Link to='/api'>
                     <div className="rounded-2xl p-8 bg-indigo-300 flex flex-col items-center">
-                      <img className="w-30" src="/src/images/puzzle-icon.png" alt="API icon" />
+                      <img className="w-30" src={puzzleIcon} alt="API icon" />
                       <h1 className="text-black text-3xl font-bold">APIs</h1>
                     </div>
                 </Link>
@@ -56,7 +61,7 @@ const Catagories = () => {
               <TutorialCard>
                 <Link to='/uiux'>
                     <div className="rounded-2xl p-8 bg-indigo-300 flex flex-col items-center">
-                      <img className="w-30" src="/src/images/ui-ux-icon.png" alt="UIUX icon" />
+                      <img className="w-30" src={uiuxIcon} alt="UIUX icon" />
                       <h1 className="text-black text-3xl font-bold">UI/UX</h1>
                     </div>
                 </Link>
