@@ -32,7 +32,7 @@ const Navbar = ({tutorials}) => {
 
           <div className="flex">
             <Link  to="register">
-              <img src="src/images/account.png"
+              <img src={userIcon}
                  className="w-8 h-8 md:hidden"
               />
             </Link>
